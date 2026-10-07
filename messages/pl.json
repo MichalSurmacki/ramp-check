@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "RampCheck — sprawdź, czy auto przejedzie przez rampę",
+    "description": "Sprawdź geometrycznie, czy samochód zjedzie z rampy bez przytarcia podwoziem. Podaj kąt rampy, prześwit i rozstaw osi."
+  },
+  "header": {
+    "brand": "RampCheck",
+    "tagline": "Czy Twoje auto zjedzie z rampy bez przytarcia?"
+  },
+  "form": {
+    "rampAngle": "Kąt rampy",
+    "clearance": "Prześwit",
+    "wheelbase": "Rozstaw osi",
+    "safetyMargin": "Minimalny margines",
+    "clearanceHelp": "Odległość od podłoża do płaskiego podwozia (między osiami).",
+    "wheelbaseHelp": "Odległość pomiędzy środkiem przedniej i tylnej osi.",
+    "marginHelp": "Ile wolnej przestrzeni chcesz zachować pomiędzy podwoziem a rampą.",
+    "unitDeg": "°",
+    "unitCm": "cm",
+    "submit": "Sprawdź auto",
+    "reset": "Resetuj"
+  },
+  "result": {
+    "successTitle": "Bezpieczny zjazd",
+    "successBody": "Samochód powinien przejechać z wymaganym marginesem.",
+    "warningTitle": "Uwaga",
+    "warningBody": "Samochód powinien przejechać, ale margines jest mniejszy od ustawionego minimum.",
+    "errorTitle": "Podwozie uderzy w rampę",
+    "errorBody": "Brakuje około {missing} cm prześwitu.",
+    "minClearance": "Minimalny prześwit",
+    "requiredMargin": "Wymagany margines",
+    "surplus": "Zapas"
+  },
+  "sim": {
+    "phase": {
+      "idle": "Ustaw parametry i kliknij „Sprawdź auto”.",
+      "approach": "Wjazd na rampę…",
+      "critical": "Punkt krytyczny: auto stoi symetrycznie nad czubkiem rampy.",
+      "descent": "Zjazd z rampy…"
+    },
+    "done": {
+      "success": "Auto zjechało bez przytarcia.",
+      "warning": "Auto zjechało, ale zapas nad czubkiem jest mniejszy od marginesu.",
+      "error": "Podwozie uderzyło w czubek rampy."
+    },
+    "entry": "wjazd",
+    "ramp": "rampa {angle}°",
+    "exit": "zjazd",
+    "intrusion": "h = {value} cm",
+    "gap": "zapas {value} cm",
+    "hit": "uderzenie {value} cm",
+    "failed": "Nie udało się uruchomić symulacji w tej przeglądarce (WebGL/WebGPU). Szczegóły w konsoli."
+  },
+  "explain": {
+    "title": "Jak liczymy, czy auto uderzy",
+    "lead": "Najgorszy moment zjazdu, tak jak w symulacji: tylne koło na poziomym wjeździe, przednie na rampie, auto przechylone o θ/2.",
+    "invalid": "Popraw parametry, aby zobaczyć wyliczenie.",
+    "overviewLabel": "Auto przechylone nad czubkiem rampy",
+    "zoomLabel": "Powiększenie czubka rampy",
+    "entry": "wjazd",
+    "ramp": "rampa {angle}°",
+    "zoom": "Powiększenie czubka ×{k} (ta sama skala w pionie i poziomie)",
+    "wheelLine": "linia kół",
+    "gapLabel": "zapas {value} cm",
+    "overlapLabel": "uderzenie {value} cm",
+    "step1": "Najgorszy moment: auto stoi symetrycznie nad czubkiem, oba koła w tej samej odległości od niego.",
+    "step1Formula": "a = L / (2·cos(θ/2)) = {L} / (2·cos({halfAngle}°)) = {a} cm",
+    "step2": "O tyle czubek wystaje ponad linię kół:",
+    "step2Formula": "h = (L/2)·tan(θ/2) = {halfL} · tan({halfAngle}°) = {h} cm",
+    "step3": "Podłoga auta jest c nad linią kół, więc nad czubkiem zostaje:",
+    "step3Formula": "c − h = {c} − {h} = {clearance} cm",
+    "verdictError": "Wynik ujemny → podwozie uderzy w czubek rampy.",
+    "verdictWarning": "Wynik ≥ 0, ale poniżej marginesu {margin} cm → przejedzie na styk.",
+    "verdictSuccess": "Wynik ≥ marginesu {margin} cm → bezpieczny zjazd.",
+    "critical": "Kąt graniczny dla tego auta: θ = 2·atan(2c/L) = {angle}°"
+  },
+  "info": {
+    "howTitle": "Jak działa kalkulator?",
+    "howBody": "RampCheck używa uproszczonego modelu geometrycznego 2D z płaskim podwoziem. Uwzględnia rozstaw osi, prześwit oraz kąt rampy.",
+    "clearanceTitle": "Co oznacza prześwit?",
+    "clearanceBody": "Odległość od podłoża do płaskiego podwozia między osiami — model nie uwzględnia lokalnych „wystających” elementów."
+  },
+  "disclaimer": "Uwaga: Wynik jest uproszczoną analizą geometryczną. Rzeczywisty przejazd może zależeć od zawieszenia, obciążenia samochodu, opon, kształtu podwozia, nierówności oraz rzeczywistego profilu rampy. Wynik nie stanowi gwarancji bezpiecznego przejazdu.",
+  "a11y": {
+    "language": "Język"
+  },
+  "errors": {
+    "angle": "Kąt musi być w zakresie 0,1°–45°.",
+    "clearance": "Prześwit musi być w zakresie 0,1–100 cm.",
+    "wheelbase": "Rozstaw osi musi być w zakresie 100–500 cm.",
+    "margin": "Margines musi być w zakresie 0–50 cm."
+  }
+}

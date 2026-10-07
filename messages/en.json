@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "RampCheck — check if your car will clear the ramp",
+    "description": "Check geometrically whether your car can descend a ramp without scraping. Enter ramp angle, clearance and wheelbase."
+  },
+  "header": {
+    "brand": "RampCheck",
+    "tagline": "Will your car clear the ramp without scraping?"
+  },
+  "form": {
+    "rampAngle": "Ramp angle",
+    "clearance": "Ground clearance",
+    "wheelbase": "Wheelbase",
+    "safetyMargin": "Minimum margin",
+    "clearanceHelp": "Distance from the ground to the flat underbody between the axles.",
+    "wheelbaseHelp": "Distance between the centres of the front and rear axles.",
+    "marginHelp": "How much free space you want to keep between the underbody and the ramp.",
+    "unitDeg": "°",
+    "unitCm": "cm",
+    "submit": "Check car",
+    "reset": "Reset"
+  },
+  "result": {
+    "successTitle": "Safe clearance",
+    "successBody": "The car should clear the ramp with the required margin.",
+    "warningTitle": "Caution",
+    "warningBody": "The car should make it, but the margin is below your minimum.",
+    "errorTitle": "Undercarriage will hit",
+    "errorBody": "About {missing} cm of clearance is missing.",
+    "minClearance": "Minimum clearance",
+    "requiredMargin": "Required margin",
+    "surplus": "Surplus"
+  },
+  "sim": {
+    "phase": {
+      "idle": "Set parameters and tap “Check car”.",
+      "approach": "Driving onto the ramp…",
+      "critical": "Critical point: the car straddles the ramp crest symmetrically.",
+      "descent": "Driving down the ramp…"
+    },
+    "done": {
+      "success": "The car made it down without scraping.",
+      "warning": "The car made it down, but the gap over the crest is below your margin.",
+      "error": "The underbody hit the ramp crest."
+    },
+    "entry": "entry",
+    "ramp": "ramp {angle}°",
+    "exit": "exit",
+    "intrusion": "h = {value} cm",
+    "gap": "gap {value} cm",
+    "hit": "hit {value} cm",
+    "failed": "The simulation could not start in this browser (WebGL/WebGPU). See the console for details."
+  },
+  "explain": {
+    "title": "How we decide whether the car hits",
+    "lead": "The worst moment of the descent, as in the simulation: rear wheel on the flat entry, front wheel on the ramp, car pitched by θ/2.",
+    "invalid": "Fix the inputs to see the calculation.",
+    "overviewLabel": "Car pitched over the ramp crest",
+    "zoomLabel": "Zoom on the ramp crest",
+    "entry": "entry",
+    "ramp": "ramp {angle}°",
+    "zoom": "Crest zoom ×{k} (same scale vertically and horizontally)",
+    "wheelLine": "wheel line",
+    "gapLabel": "gap {value} cm",
+    "overlapLabel": "hit {value} cm",
+    "step1": "Worst moment: the car straddles the crest symmetrically, both wheels equally far from it.",
+    "step1Formula": "a = L / (2·cos(θ/2)) = {L} / (2·cos({halfAngle}°)) = {a} cm",
+    "step2": "This is how far the crest rises above the wheel line:",
+    "step2Formula": "h = (L/2)·tan(θ/2) = {halfL} · tan({halfAngle}°) = {h} cm",
+    "step3": "The floor sits c above the wheel line, so over the crest there is:",
+    "step3Formula": "c − h = {c} − {h} = {clearance} cm",
+    "verdictError": "Negative → the underbody hits the ramp crest.",
+    "verdictWarning": "≥ 0 but below the {margin} cm margin → it passes, barely.",
+    "verdictSuccess": "≥ the {margin} cm margin → safe descent.",
+    "critical": "Limit angle for this car: θ = 2·atan(2c/L) = {angle}°"
+  },
+  "info": {
+    "howTitle": "How does the calculator work?",
+    "howBody": "RampCheck uses a simplified 2D geometric model with a flat underbody. It accounts for wheelbase, clearance and ramp angle.",
+    "clearanceTitle": "What is clearance?",
+    "clearanceBody": "Distance from the ground to the flat underbody between the axles — the model does not include local protruding parts."
+  },
+  "disclaimer": "Note: The result is a simplified geometric analysis. Real clearance may depend on suspension travel, load, tyres, underbody shape, uneven surfaces and the actual ramp profile. This is not a guarantee of a safe pass.",
+  "a11y": {
+    "language": "Language"
+  },
+  "errors": {
+    "angle": "Angle must be between 0.1° and 45°.",
+    "clearance": "Clearance must be between 0.1 and 100 cm.",
+    "wheelbase": "Wheelbase must be between 100 and 500 cm.",
+    "margin": "Margin must be between 0 and 50 cm."
+  }
+}

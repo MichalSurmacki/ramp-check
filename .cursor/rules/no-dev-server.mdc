@@ -1,0 +1,29 @@
+---
+description: Agent must not run dev/start servers; validate with typecheck, lint, and tests only
+alwaysApply: true
+---
+
+# No Dev / Start Servers
+
+The agent must **never** start the application or a long-running server to validate work.
+
+## Forbidden
+
+Do not run any of the following (including via yarn/npm/pnpm, or equivalent):
+
+- `dev` / `next dev` / `yarn dev` / `npm run dev`
+- `start` / `next start` / `yarn start` / `npm start`
+- `test:watch` / `vitest` without `run` (watch mode)
+- Any other long-running process meant to serve or hot-reload the app
+
+Do not ask the user to start `dev`/`start` as a substitute for agent validation.
+
+## Allowed validation
+
+Use only static/CI-style checks:
+
+- Typecheck: `yarn tsc --noEmit` (or project typecheck script if added)
+- Lint: `yarn lint`
+- Tests: `yarn test` (`vitest run` only — no watch)
+
+Prefer these over building/serving when checking correctness. `yarn build` is allowed only when specifically needed to verify a production build failure, not as a default check.
