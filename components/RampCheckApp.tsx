@@ -54,14 +54,17 @@ export function RampCheckApp() {
         <Disclaimer />
       </div>
 
-      <div className="space-y-6">
+      {/* Below lg the wrapper dissolves so the explainer can follow the simulation. */}
+      <div className="contents lg:block lg:space-y-6">
         <CalculatorForm
           state={state}
           onChange={onChange}
           onSubmit={onSubmit}
           onReset={onReset}
         />
-        <ClearanceExplainer state={state} result={preview} />
+        <div className="order-1 lg:order-none">
+          <ClearanceExplainer state={state} result={preview} />
+        </div>
       </div>
 
       <div className="space-y-4 lg:sticky lg:top-4">
@@ -76,7 +79,7 @@ export function RampCheckApp() {
         {result ? <ResultCard result={result} /> : null}
       </div>
 
-      <div className="space-y-6 lg:col-span-2">
+      <div className="order-2 space-y-6 lg:order-none lg:col-span-2">
         <section className="grid gap-4 md:grid-cols-2">
           <InfoCard title={t("info.howTitle")} body={t("info.howBody")} />
           <InfoCard
