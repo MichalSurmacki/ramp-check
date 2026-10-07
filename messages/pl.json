@@ -27,9 +27,12 @@
     "warningBody": "Samochód powinien przejechać, ale margines jest mniejszy od ustawionego minimum.",
     "errorTitle": "Podwozie uderzy w rampę",
     "errorBody": "Brakuje około {missing} cm prześwitu.",
-    "minClearance": "Minimalny prześwit",
-    "requiredMargin": "Wymagany margines",
-    "surplus": "Zapas"
+    "minClearance": "Minimalny prześwit z marginesem",
+    "requiredMinClearance": "Wymagany minimalny prześwit z marginesem",
+    "minClearanceBare": "minimalny prześwit: {value} cm",
+    "crestGap": "Wolna przestrzeń",
+    "surplus": "Zapas ponad margines",
+    "surplusHint": "margines {margin} cm"
   },
   "sim": {
     "phase": {
@@ -40,7 +43,7 @@
     },
     "done": {
       "success": "Auto zjechało bez przytarcia.",
-      "warning": "Auto zjechało, ale zapas nad czubkiem jest mniejszy od marginesu.",
+      "warning": "Auto zjechało, ale zapas nad rampą jest mniejszy od marginesu.",
       "error": "Podwozie uderzyło w czubek rampy."
     },
     "entry": "wjazd",
@@ -53,7 +56,7 @@
   },
   "explain": {
     "title": "Jak liczymy, czy auto uderzy",
-    "lead": "Najgorszy moment zjazdu, tak jak w symulacji: tylne koło na poziomym wjeździe, przednie na rampie, auto przechylone o θ/2.",
+    "lead": "Pod uwagę brany jest najgorszy moment zjazdu",
     "invalid": "Popraw parametry, aby zobaczyć wyliczenie.",
     "overviewLabel": "Auto przechylone nad czubkiem rampy",
     "zoomLabel": "Powiększenie czubka rampy",
@@ -85,9 +88,9 @@
     "language": "Język"
   },
   "errors": {
-    "angle": "Kąt musi być w zakresie 0,1°–45°.",
-    "clearance": "Prześwit musi być w zakresie 0,1–100 cm.",
-    "wheelbase": "Rozstaw osi musi być w zakresie 100–500 cm.",
-    "margin": "Margines musi być w zakresie 0–50 cm."
+    "angle": "Kąt musi być w zakresie 0,1°-45°.",
+    "clearance": "Prześwit musi być w zakresie 0,1-50 cm.",
+    "wheelbase": "Rozstaw osi musi być w zakresie 100-500 cm.",
+    "margin": "Margines musi być w zakresie 0-50 cm."
   }
 }

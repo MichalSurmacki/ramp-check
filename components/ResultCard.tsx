@@ -17,6 +17,10 @@ export function ResultCard({ result }: Props) {
         ? "warning"
         : "danger"
 
+  const hit = result.status === "error"
+  const showSurplus = result.status === "success"
+  const showCrestGap = result.status === "warning"
+
   const icon =
     result.status === "success" ? "✓" : result.status === "warning" ? "!" : "×"
 
@@ -48,25 +52,41 @@ export function ResultCard({ result }: Props) {
         {title}
       </h2>
       <p className="mt-2 text-sm opacity-90">{body}</p>
-      <dl className="mt-5 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3">
+      <dl
+        className={`mt-5 grid grid-cols-1 gap-2 text-sm ${hit ? "" : "sm:grid-cols-2"}`}
+      >
         <div>
-          <dt className="opacity-70">{t("minClearance")}</dt>
+          <dt className="opacity-70">
+            {t(hit ? "requiredMinClearance" : "minClearance")}
+          </dt>
           <dd className="text-lg font-semibold tabular-nums">
-            {result.minimumClearanceCm.toFixed(1)} cm
+            {(result.crestIntrusionCm + result.safetyMarginCm).toFixed(1)} cm
+          </dd>
+          <dd className="text-xs opacity-70 tabular-nums">
+            {t("minClearanceBare", {
+              value: result.crestIntrusionCm.toFixed(1),
+            })}
           </dd>
         </div>
-        <div>
-          <dt className="opacity-70">{t("requiredMargin")}</dt>
-          <dd className="text-lg font-semibold tabular-nums">
-            {result.safetyMarginCm.toFixed(1)} cm
-          </dd>
-        </div>
-        <div>
-          <dt className="opacity-70">{t("surplus")}</dt>
-          <dd className="text-lg font-semibold tabular-nums">
-            {result.marginDifferenceCm.toFixed(1)} cm
-          </dd>
-        </div>
+        {showCrestGap ? (
+          <div>
+            <dt className="opacity-70">{t("crestGap")}</dt>
+            <dd className="text-lg font-semibold tabular-nums">
+              {result.minimumClearanceCm.toFixed(1)} cm
+            </dd>
+          </div>
+        ) : null}
+        {showSurplus ? (
+          <div>
+            <dt className="opacity-70">{t("surplus")}</dt>
+            <dd className="text-lg font-semibold tabular-nums">
+              {result.marginDifferenceCm.toFixed(1)} cm
+            </dd>
+            <dd className="text-xs opacity-70 tabular-nums">
+              {t("surplusHint", { margin: result.safetyMarginCm.toFixed(1) })}
+            </dd>
+          </div>
+        ) : null}
       </dl>
     </section>
   )

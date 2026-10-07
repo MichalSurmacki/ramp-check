@@ -112,8 +112,8 @@ export function createRampGraphics(): RampView {
     entryLabel.position.set(crestX / 2, crestY + 8)
 
     rampLabel.text = labels.ramp
-    rampLabel.anchor.set(0, 0)
-    rampLabel.position.set(crestX + arcR + 8, crestY + 6)
+    rampLabel.anchor.set(0, 1)
+    rampLabel.position.set(crestX + 10, crestY - 4)
 
     exitLabel.text = labels.exit
     exitLabel.position.set((footX + width) / 2, footY + 8)

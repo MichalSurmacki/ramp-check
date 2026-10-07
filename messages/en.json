@@ -27,9 +27,12 @@
     "warningBody": "The car should make it, but the margin is below your minimum.",
     "errorTitle": "Undercarriage will hit",
     "errorBody": "About {missing} cm of clearance is missing.",
-    "minClearance": "Minimum clearance",
-    "requiredMargin": "Required margin",
-    "surplus": "Surplus"
+    "minClearance": "Minimum clearance with margin",
+    "requiredMinClearance": "Required minimum clearance with margin",
+    "minClearanceBare": "minimum clearance: {value} cm",
+    "crestGap": "Clearance left",
+    "surplus": "Surplus over margin",
+    "surplusHint": "margin {margin} cm"
   },
   "sim": {
     "phase": {
@@ -53,7 +56,7 @@
   },
   "explain": {
     "title": "How we decide whether the car hits",
-    "lead": "The worst moment of the descent, as in the simulation: rear wheel on the flat entry, front wheel on the ramp, car pitched by θ/2.",
+    "lead": "The worst moment of the descent is taken into consideration.",
     "invalid": "Fix the inputs to see the calculation.",
     "overviewLabel": "Car pitched over the ramp crest",
     "zoomLabel": "Zoom on the ramp crest",
@@ -86,7 +89,7 @@
   },
   "errors": {
     "angle": "Angle must be between 0.1° and 45°.",
-    "clearance": "Clearance must be between 0.1 and 100 cm.",
+    "clearance": "Clearance must be between 0.1 and 50 cm.",
     "wheelbase": "Wheelbase must be between 100 and 500 cm.",
     "margin": "Margin must be between 0 and 50 cm."
   }

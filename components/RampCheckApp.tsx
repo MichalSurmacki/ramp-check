@@ -50,6 +50,10 @@ export function RampCheckApp() {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:items-start">
+      <div className="lg:col-span-2">
+        <Disclaimer />
+      </div>
+
       <div className="space-y-6">
         <CalculatorForm
           state={state}
@@ -80,7 +84,6 @@ export function RampCheckApp() {
             body={t("info.clearanceBody")}
           />
         </section>
-        <Disclaimer />
       </div>
     </div>
   )
